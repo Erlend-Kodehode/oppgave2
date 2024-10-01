@@ -17,8 +17,12 @@ received is an even number.
 
 ******************************************************************************/
 
+// This function takes a number as a parameter and uses modulo to figure out if the number is divisable by 2, if it is the function returns "Even" if it isn't it returns "Odd"
 
-  
+function oddOrEvenCheck(number) {
+  return number % 2 === 0 ? "Even" : "Odd";
+}
+
 /******************************************************************************
 2.
 
@@ -31,6 +35,11 @@ Example: "This is cool" should return "THIS IS COOL!"
 
 ******************************************************************************/
 
+// This function uses the "toUpperCase" method to capitalize the letters and template literal to add an exclamation mark at the end
+
+const shoutText = (text) => {
+  return `${text.toUpperCase()}!`;
+};
 
 /******************************************************************************
 3.
@@ -54,7 +63,27 @@ If no hour is received, your function should return an error message.
 
 ******************************************************************************/
 
+// The function checks if it has recieved a time and then it checks whether or not its between 0 and 23. Then the functions goes through a series of if else statements to return the appropriate message to the given time
 
+function greeter(name, time) {
+  if (time || time === 0) {
+    if (time >= 0 && time <= 23) {
+      if (time <= 5) {
+        return `Good night ${name}`;
+      } else if (time <= 11) {
+        return `Good morning ${name}`;
+      } else if (time <= 17) {
+        return `Good day ${name}`;
+      } else if (time >= 18) {
+        return `Good evening ${name}`;
+      }
+    } else {
+      return "Invalid time";
+    }
+  } else {
+    return "Missing time of day";
+  }
+}
 
 /******************************************************************************
 4.
@@ -70,7 +99,13 @@ Example 2: ["One", "Two", "Three", "Four", "Five", "Six"] should return
 ["Two", "Three", "Four", "Five"]
 ******************************************************************************/
 
+// The function uses shift and pop to remove the first and the last index
 
+const firstAndLastRemover = (array) => {
+  array.shift();
+  array.pop();
+  return array;
+};
 
 /******************************************************************************
 5.
@@ -91,7 +126,9 @@ Example3: "   hard        " should return "fun"
 
 ******************************************************************************/
 
-
+function hardToFun(text) {
+  return text.replace("hard", "fun").trim();
+}
 
 /******************************************************************************
 6.
@@ -105,9 +142,14 @@ Use array methods to do the following:
 
 ******************************************************************************/
 
-const heroes = ["Spider-Man", "Thor", "Hulk", "Doctor Strange", "Iron Man", "Black Widow"]
-
-
+const heroes = [
+  "Spider-Man",
+  "Thor",
+  "Hulk",
+  "Doctor Strange",
+  "Iron Man",
+  "Black Widow",
+];
 
 /******************************************************************************
 7.
@@ -136,8 +178,6 @@ Return "😎Primitive values only😎"
 
 ******************************************************************************/
 
-
-
 /******************************************************************************
 8.
 
@@ -160,6 +200,3 @@ Example2: (["Red", "Green", "Blue"], "Green")) --> ["Red", "Blue"]
 Example3: (["One", "Two", "Three"], "Four") --> ["One", "Two", "Three", "Four"]
 Example4: (["One", "Two", "Three"], "Two") --> ["One", "Three"]
 ******************************************************************************/
-
-
-  
