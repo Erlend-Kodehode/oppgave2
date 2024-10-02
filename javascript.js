@@ -35,7 +35,7 @@ Example: "This is cool" should return "THIS IS COOL!"
 
 ******************************************************************************/
 
-// This function uses the "toUpperCase" method to capitalize the letters and template literal to add an exclamation mark at the end
+// This function uses the "toUpperCase()" method to capitalize the letters and template literal to add an exclamation mark at the end
 
 const shoutText = (text) => {
   return `${text.toUpperCase()}!`;
@@ -63,7 +63,7 @@ If no hour is received, your function should return an error message.
 
 ******************************************************************************/
 
-// The function checks if it has recieved a time and then it checks whether or not its between 0 and 23. Then the functions goes through a series of if else statements to return the appropriate message to the given time
+// The function first checks if it has recieved a time and then it checks whether or not its between 0 and 23. Then the functions goes through a series of if else statements to return the appropriate message to the given time
 
 function greeter(name, time) {
   if (time || time === 0) {
@@ -99,7 +99,7 @@ Example 2: ["One", "Two", "Three", "Four", "Five", "Six"] should return
 ["Two", "Three", "Four", "Five"]
 ******************************************************************************/
 
-// The function uses shift and pop to remove the first and the last index
+// The function uses "shift()" and "pop()" to remove the first and the last index
 
 const firstAndLastRemover = (array) => {
   array.shift();
@@ -126,6 +126,8 @@ Example3: "   hard        " should return "fun"
 
 ******************************************************************************/
 
+// Function uses "replace()" to replace the words and "trim()" to remove the whitespace
+
 function hardToFun(text) {
   return text.replace("hard", "fun").trim();
 }
@@ -150,6 +152,11 @@ const heroes = [
   "Iron Man",
   "Black Widow",
 ];
+
+heroes.shift();
+heroes[2] = "Skrull";
+heroes.splice(0, 2, "Captain America");
+console.log(heroes.join("💪"));
 
 /******************************************************************************
 7.
@@ -178,6 +185,25 @@ Return "😎Primitive values only😎"
 
 ******************************************************************************/
 
+//This function uses the "typeof" operator inside of a switch statement to determine the datatype and returns the correct thing based on said datatype
+
+// I also used template literal to add the emojis to the beginning and end, and to convert the value to string in one go
+
+const coolFunction = (value) => {
+  switch (typeof value) {
+    case "string":
+      return `😎${value}😎`;
+
+    case "number":
+      return `😎${value * 2}😎`;
+
+    case "boolean":
+      return value ? "😎Yeah😎" : "😎Chill😎";
+    default:
+      return "😎Primitive values only😎";
+  }
+};
+
 /******************************************************************************
 8.
 
@@ -200,3 +226,14 @@ Example2: (["Red", "Green", "Blue"], "Green")) --> ["Red", "Blue"]
 Example3: (["One", "Two", "Three"], "Four") --> ["One", "Two", "Three", "Four"]
 Example4: (["One", "Two", "Three"], "Two") --> ["One", "Three"]
 ******************************************************************************/
+
+// The function checks if the array contains the string using the "includes()" method, and then if the check is successful it uses splice in combination with indexOf to remove the correct element. If the check is unsuccessful it pushes the string at the end
+
+function addOrRemove(array, string) {
+  if (array.includes(string)) {
+    return array.toSpliced(array.indexOf(string), 1);
+  } else {
+    array.push(string);
+    return array;
+  }
+}
